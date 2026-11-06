@@ -1,0 +1,11 @@
+# Bản playable gốc dùng để đối chiếu, không cần cho bản game mới.
+orca_share_media*.html
+
+# Ảnh và dữ liệu kiểm thử cục bộ.
+output/
+.playwright-mcp/
+
+# Tệp hệ điều hành và trình soạn thảo.
+.DS_Store
+Thumbs.db
+*.swp

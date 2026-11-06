@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#07111d" />
+    <meta name="description" content="Kaga x Tama - game bắn đạn màn hình dọc chạy trực tiếp trên trình duyệt." />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ef5b3f' d='M32 6 40 22l18 3-13 13 3 18-16-8-16 8 3-18L6 25l18-3Z'/%3E%3C/svg%3E" />
+    <title>Kaga × Tama — Đêm Hồ Ly</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="game-shell" class="game-shell">
+      <canvas
+        id="game-canvas"
+        tabindex="0"
+        aria-label="Kaga x Tama. Kéo chuột, kéo ngón tay hoặc dùng các phím mũi tên để di chuyển."
+      ></canvas>
+
+      <div class="grain" aria-hidden="true"></div>
+
+      <section class="hud" aria-label="Thông tin trận đấu">
+        <div class="hud__left">
+          <div class="lives" aria-label="Số mạng còn lại">
+            <span class="heart" aria-hidden="true"></span>
+            <strong id="lives-value">3</strong>
+          </div>
+          <div class="score-block">
+            <span>ĐIỂM</span>
+            <strong id="score-value">000000</strong>
+          </div>
+        </div>
+
+        <div class="wave-chip" id="wave-label">SẴN SÀNG</div>
+
+        <div class="hud__actions">
+          <button id="sound-button" class="icon-button" type="button" aria-label="Tắt âm thanh" aria-pressed="true">
+            <svg class="sound-on" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9v6h4l5 4V5L8 9H4Zm12.5 3a4.5 4.5 0 0 0-2-4.03v8.06A4.5 4.5 0 0 0 16.5 12Zm-2-8.77v2.08a7 7 0 0 1 0 13.38v2.08a9 9 0 0 0 0-17.54Z" />
+            </svg>
+            <svg class="sound-off" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 9v6h4l5 4V5L8 9H4Zm14.59 3 2.7-2.7-1.42-1.41-2.7 2.7-2.7-2.7-1.42 1.41 2.7 2.7-2.7 2.7 1.42 1.41 2.7-2.7 2.7 2.7 1.42-1.41-2.7-2.7Z" />
+            </svg>
+          </button>
+          <button id="fullscreen-button" class="icon-button" type="button" aria-label="Bật toàn màn hình">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h6v2H6v4H4V4Zm10 0h6v6h-2V6h-4V4ZM4 14h2v4h4v2H4v-6Zm14 0h2v6h-6v-2h4v-4Z" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <div class="boss-hud" id="boss-hud" aria-hidden="true">
+        <div class="boss-hud__copy">
+          <span>YÊU HỒ</span>
+          <strong>TAMA</strong>
+        </div>
+        <div class="boss-hud__track"><span id="boss-health"></span></div>
+      </div>
+
+      <section id="start-panel" class="panel panel--start">
+        <p class="eyebrow">NGÔI ĐỀN · 00:00</p>
+        <h1>KAGA <span>×</span> TAMA</h1>
+        <p class="tagline">Phá vòng vây. Giải cứu yêu hồ.</p>
+        <button id="start-button" class="primary-button" type="button">
+          <span>CHẠM ĐỂ BẮT ĐẦU</span>
+          <small>Kéo để di chuyển · Tự động bắn</small>
+        </button>
+        <p class="keyboard-hint">Máy tính: WASD / phím mũi tên</p>
+      </section>
+
+      <section id="result-panel" class="panel panel--result" hidden>
+        <p class="eyebrow" id="result-eyebrow">TRẬN CHIẾN KẾT THÚC</p>
+        <h2 id="result-title">BÌNH MINH ĐÃ ĐẾN</h2>
+        <p id="result-copy">Bạn đã phá tan lời nguyền quanh ngôi đền.</p>
+        <div class="result-score">
+          <span>ĐIỂM CUỐI</span>
+          <strong id="result-score">000000</strong>
+        </div>
+        <button id="restart-button" class="primary-button" type="button">
+          <span>CHƠI LẠI</span>
+          <small>Lập kỷ lục mới</small>
+        </button>
+      </section>
+
+      <div id="loading" class="loading" role="status">
+        <span></span>
+        <p>ĐANG MỞ CỔNG ĐỀN…</p>
+      </div>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
