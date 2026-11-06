@@ -47,7 +47,7 @@
     elapsed: 0,
     backgroundY: 0,
     score: 0,
-    lives: 3,
+    lives: 5,
     wave: 0,
     waveDelay: 0,
     shake: 0,
@@ -191,7 +191,7 @@
     state.mode = "ready";
     state.elapsed = 0;
     state.score = 0;
-    state.lives = 3;
+    state.lives = 5;
     state.wave = 0;
     state.waveDelay = 0;
     state.shake = 0;
@@ -252,7 +252,7 @@
       x, y, homeX: x, homeY: y, frame, hp, maxHp: hp, behavior, angle,
       radius: width < 560 ? 19 : 23,
       phase: random(0, TAU),
-      fireClock: random(1.8, 3.8),
+      fireClock: random(2.5, 4.5),
       alive: true,
     };
   }
@@ -465,8 +465,8 @@
         enemy.y = enemy.homeY + Math.sin(enemy.phase * 0.55) * 18;
       }
       if (state.mode === "playing" && enemy.fireClock <= 0) {
-        enemy.fireClock = random(2.5, 4.1);
-        enemyShoot(enemy, state.wave >= 3 ? 3 : 1, 105 + state.wave * 8);
+        enemy.fireClock = random(3.2, 5);
+        enemyShoot(enemy, state.wave >= 3 ? 3 : 1, 85 + state.wave * 6);
       }
     }
   }
@@ -569,7 +569,7 @@
 
   function damagePlayer() {
     const player = state.player;
-    player.invulnerable = 2.8;
+    player.invulnerable = 3.2;
     state.lives -= 1;
     state.shake = 0.45;
     state.flash = 0.22;
