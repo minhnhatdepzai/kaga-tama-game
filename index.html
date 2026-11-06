@@ -7,7 +7,7 @@
     <meta name="description" content="Kaga x Tama - game bắn đạn màn hình dọc chạy trực tiếp trên trình duyệt." />
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%23ef5b3f' d='M32 6 40 22l18 3-13 13 3 18-16-8-16 8 3-18L6 25l18-3Z'/%3E%3C/svg%3E" />
     <title>Kaga × Tama — Đêm Hồ Ly</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261106-2" />
   </head>
   <body>
     <main id="game-shell" class="game-shell">
@@ -52,11 +52,33 @@
 
       <div class="boss-hud" id="boss-hud" aria-hidden="true">
         <div class="boss-hud__copy">
-          <span>YÊU HỒ</span>
+          <span id="boss-phase-name">DARK WATER</span>
           <strong>TAMA</strong>
         </div>
         <div class="boss-hud__track"><span id="boss-health"></span></div>
+        <div class="boss-hud__meta">
+          <div id="boss-phase-pips" class="phase-pips" aria-label="Phase boss"></div>
+          <strong id="boss-timer">12.0</strong>
+        </div>
       </div>
+
+      <section id="phase-banner" class="phase-banner" hidden aria-live="polite">
+        <img id="phase-art" src="assets/tama-cut-in.webp" alt="Tama trong hình dạng cửu vĩ" />
+        <div>
+          <p id="phase-kicker">PHÁP THUẬT BĂNG</p>
+          <h2 id="phase-title">FROZEN FLOWER</h2>
+          <span id="phase-subtitle">Frost Art · Sleet Curtain</span>
+        </div>
+      </section>
+
+      <section id="story-panel" class="story" hidden aria-live="polite">
+        <img id="story-portrait" src="assets/kaga-determined.webp" alt="" />
+        <div class="story__copy">
+          <span id="story-speaker">KAGA</span>
+          <p id="story-text">Tama! Cuối cùng mình cũng tìm thấy cậu!</p>
+          <button id="story-next" type="button">TIẾP TỤC <span aria-hidden="true">›</span></button>
+        </div>
+      </section>
 
       <section id="start-panel" class="panel panel--start">
         <p class="eyebrow">NGÔI ĐỀN · 00:00</p>
@@ -70,9 +92,11 @@
       </section>
 
       <section id="result-panel" class="panel panel--result" hidden>
+        <img id="ending-art" class="ending-art" src="assets/tama-end-card.webp" alt="Tama bị lời nguyền bao phủ" />
+        <div class="result-content">
         <p class="eyebrow" id="result-eyebrow">TRẬN CHIẾN KẾT THÚC</p>
-        <h2 id="result-title">BÌNH MINH ĐÃ ĐẾN</h2>
-        <p id="result-copy">Bạn đã phá tan lời nguyền quanh ngôi đền.</p>
+        <h2 id="result-title">RESCUE HER!</h2>
+        <p id="result-copy">Tama vẫn đang bị kéo sâu vào lời nguyền.</p>
         <div class="result-score">
           <span>ĐIỂM CUỐI</span>
           <strong id="result-score">000000</strong>
@@ -81,6 +105,7 @@
           <span>CHƠI LẠI</span>
           <small>Lập kỷ lục mới</small>
         </button>
+        </div>
       </section>
 
       <div id="loading" class="loading" role="status">
@@ -89,6 +114,6 @@
       </div>
     </main>
 
-    <script src="game.js"></script>
+    <script src="game.js?v=20261106-2"></script>
   </body>
 </html>

@@ -3,6 +3,7 @@ orca_share_media*.html
 
 # Ảnh và dữ liệu kiểm thử cục bộ.
 output/
+artifacts/
 .playwright-mcp/
 
 # Tệp hệ điều hành và trình soạn thảo.
